@@ -5,7 +5,7 @@
 
 Name:           aeroshell-libplasma
 Version:        6.6.3
-Release:        1%{?dist}
+Release:        50%{?dist}
 Summary:        Plasma library and runtime components, with AeroShell patches
 
 License:        LGPLv2
@@ -80,7 +80,7 @@ BuildRequires:  curl
 Requires:       kf6-filesystem
 
 	
-Obsoletes:      libplasma <= %{version}-%{release}
+Obsoletes:      libplasma < %{version}-%{release}
 Provides:       libplasma = %{version}-%{release}
 Obsoletes:      kf6-plasma < 1:%{version}-%{release}
 Provides:       kf6-plasma = 1:%{version}-%{release}
