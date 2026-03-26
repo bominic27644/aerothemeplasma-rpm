@@ -5,7 +5,7 @@
 
 Name:           aerothemeplasma-icons
 Version:        0
-Release:        %autorelease
+Release:        1.git%{shortcommit}%{?dist}
 Summary:        Icon theme designed for AeroThemePlasma
 
 License:        AGPLv3

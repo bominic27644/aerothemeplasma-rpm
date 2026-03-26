@@ -5,7 +5,7 @@
 
 Name:           aeroshell-kwin-components
 Version:        0
-Release:        %autorelease
+Release:        1.git%{shortcommit}%{?dist}
 Summary:        KWin effects, scripts, and other plugins for AeroShell-based desktops
 
 License:        AGPLv3

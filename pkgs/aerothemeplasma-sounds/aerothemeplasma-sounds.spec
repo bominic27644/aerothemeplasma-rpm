@@ -5,7 +5,7 @@
 
 Name:           aerothemeplasma-sounds
 Version:        0
-Release:        %autorelease
+Release:        1.git%{shortcommit}%{?dist}
 Summary:        Collection of sound themes designed for AeroThemePlasma
 
 License:        AGPLv3

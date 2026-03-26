@@ -5,7 +5,7 @@
 
 Name:           aerothemeplasma-desktop
 Version:        0
-Release:        %autorelease
+Release:        1.git%{shortcommit}%{?dist}
 Summary:        An alternative shell for KDE Plasma that aims to replicate the look and feel of Windows 7
 
 License:        AGPLv3

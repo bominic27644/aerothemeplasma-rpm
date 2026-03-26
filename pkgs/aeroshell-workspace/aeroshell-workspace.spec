@@ -5,7 +5,7 @@
 
 Name:           aeroshell-workspace
 Version:        0
-Release:        %autorelease
+Release:        1.git%{shortcommit}%{?dist}
 Summary:        Various components required by AeroShell-based desktops
 
 License:        AGPLv3

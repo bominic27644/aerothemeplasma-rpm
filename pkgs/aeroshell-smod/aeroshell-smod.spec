@@ -5,7 +5,7 @@
 
 Name:           aeroshell-smod
 Version:        0
-Release:        %autorelease
+Release:        1.git%{shortcommit}%{?dist}
 Summary:        KDecoration3 decoration engine for AeroShell-based desktops
 
 License:        AGPLv3
