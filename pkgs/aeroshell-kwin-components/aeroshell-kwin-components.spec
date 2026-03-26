@@ -89,7 +89,7 @@ KWin effects, scripts, and other plugins for AeroShell-based desktops
 %autosetup -n %{name}-%{commit}
 
 %build
-%cmake
+%cmake -DKWIN_BUILD_WAYLAND=ON
 %cmake_build
 
 %install
@@ -108,7 +108,8 @@ kbuildsycoca6 &> /dev/null || :
 %{_datadir}/kwin/tabbox
 %{_bindir}/aeroshell_update_default_rules
 %{_datadir}/smod/*
-%{_libdir}/qt6/plugins/kwin-x11/effects/*
+%{_libdir}/qt6/plugins/kwin/effects/configs/*.so
+%{_libdir}/qt6/plugins/kwin/effects/plugins/*.so
 %{_datadir}/aeroshell/*
 # Include locale files
 %{_datadir}/locale/*/LC_MESSAGES/aeroshell-kwin-components.mo
