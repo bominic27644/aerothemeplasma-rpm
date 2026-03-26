@@ -80,8 +80,8 @@ BuildRequires:  curl
 Requires:       kf6-filesystem
 
 	
-Obsoletes:      libplasma < 1:%{version}-%{release}
-Provides:       libplasma = 1:%{version}-%{release}
+Obsoletes:      libplasma <= %{version}-%{release}
+Provides:       libplasma = %{version}-%{release}
 Obsoletes:      kf6-plasma < 1:%{version}-%{release}
 Provides:       kf6-plasma = 1:%{version}-%{release}
 
