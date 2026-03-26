@@ -5,80 +5,59 @@
 
 Name:           aeroshell-libplasma
 Version:        6.6.3
-Release:        50%{?dist}
+Release:        51%{?dist}
 Summary:        Plasma library and runtime components, with AeroShell patches
 
 License:        LGPLv2
 URL:            https://gitgud.io/aeroshell/libplasma
 Source:         https://gitgud.io/aeroshell/libplasma/-/archive/%{commit}/libplasma-%{shortcommit}.tar.gz
 
-# Build requirements for C++ components
-BuildRequires:  ninja-build
-BuildRequires:  kf6-rpm-macros
-
-BuildRequires:  cmake make gcc-c++
 BuildRequires:  extra-cmake-modules
-BuildRequires:  pkgconfig
-BuildRequires:  kf6-ki18n-devel
-BuildRequires:  kf6-kconfig-devel
-BuildRequires:  kf6-kguiaddons-devel
-BuildRequires:  kf6-kcoreaddons-devel
-BuildRequires:  kf6-kpackage-devel
-BuildRequires:  kf6-kio-devel
-BuildRequires:  kf6-ksvg-devel
-BuildRequires:  kf6-karchive-devel
-BuildRequires:  kf6-kiconthemes-devel 
-BuildRequires:  kf6-kcmutils-devel
-BuildRequires:  kf6-kglobalaccel-devel
-BuildRequires:  kf6-kcrash-devel
-BuildRequires:  kf6-kdeclarative-devel
-BuildRequires:  kf6-kdbusaddons-devel
-BuildRequires:  kf6-solid-devel
-BuildRequires:  kf6-knotifications-devel
-BuildRequires:  kf6-kwidgetsaddons-devel
-BuildRequires:  kf6-kirigami-devel
-BuildRequires:  kf6-kirigami-addons-devel
-BuildRequires:  gmp-ecm-devel 
-BuildRequires:  kf6-knewstuff-devel 
-BuildRequires:  kf6-knotifyconfig-devel 
-BuildRequires:  kf6-attica-devel 
-BuildRequires:  kf6-krunner-devel 
-BuildRequires:  kf6-sonnet-devel 
-BuildRequires:  kf6-kitemmodels-devel 
-BuildRequires:  kf6-kstatusnotifieritem-devel
-BuildRequires:  kf6-qqc2-desktop-style
-# Plasma dependenciesPlasma library and runtime components, with AeroShell patches
-BuildRequires:  plasma-workspace-devel
-BuildRequires:  kwin-devel
-BuildRequires:  kwin-x11-devel
-BuildRequires:  kdecoration-devel
-BuildRequires:  libplasma-devel 
-BuildRequires:  plasma-activities-devel 
-BuildRequires:  plasma-wayland-protocols 
-BuildRequires:  kf5-plasma-devel
-BuildRequires:  plasma5support-devel 
-BuildRequires:  plasma-activities-stats-devel 
-# Qt dependencies
-BuildRequires:  qt-devel 
-BuildRequires:  qt6-qtbase-devel
-BuildRequires:  qt6-qtbase-private-devel
-BuildRequires:  qt6-qtsvg-devel
-BuildRequires:  qt6-qt5compat-devel
-BuildRequires:  qt6-qtmultimedia-devel
-BuildRequires:  qt6-qtwayland-devel
-BuildRequires:  qt6-qtdeclarative-devel 
-BuildRequires:  qt6-qt5compat-devel 
-BuildRequires:  qt6-qtwayland-devel
-# Other dependencies
-BuildRequires:  wayland-devel
-BuildRequires:  plasma-wayland-protocols-devel
-BuildRequires:  libepoxy-devel
-BuildRequires:  libdrm-devel
-BuildRequires:  polkit-qt6-1-devel 
-BuildRequires:  curl
-
+BuildRequires:  gcc-c++
+BuildRequires:  kf6-rpm-macros
+ 
+# Qt
+BuildRequires:  cmake(Qt6Quick)
+BuildRequires:  cmake(Qt6Gui)
+BuildRequires:  cmake(Qt6Qml)
+BuildRequires:  cmake(Qt6Svg)
+BuildRequires:  cmake(Qt6QuickControls2)
+BuildRequires:  cmake(Qt6DBus)
+BuildRequires:  cmake(Qt6GuiPrivate)
+ 
+# KDE Frameworks
+BuildRequires:  cmake(KF6Config)
+BuildRequires:  cmake(KF6CoreAddons)
+BuildRequires:  cmake(KF6GlobalAccel)
+BuildRequires:  cmake(KF6DocTools)
+BuildRequires:  cmake(KF6GuiAddons)
+BuildRequires:  cmake(KF6I18n)
+BuildRequires:  cmake(KF6IconThemes)
+BuildRequires:  cmake(KF6KIO)
+BuildRequires:  cmake(KF6WindowSystem)
+BuildRequires:  cmake(KF6Notifications)
+BuildRequires:  cmake(KF6Package)
+BuildRequires:  cmake(KF6KirigamiPlatform)
+BuildRequires:  cmake(KF6Svg)
+BuildRequires:  cmake(KF6ColorScheme)
+BuildRequires:  cmake(KF6DBusAddons)
+ 
+# Plasma
+BuildRequires:  cmake(PlasmaActivities)
+ 
+# Wayland
+BuildRequires:  cmake(PlasmaWaylandProtocols)
+BuildRequires:  cmake(Qt6WaylandClient)
+BuildRequires:  pkgconfig(wayland-client)
+ 
+# autotests
+BuildRequires:  cmake(KF6Archive)
+ 
+# examples
+BuildRequires:  cmake(KF6Parts)
+BuildRequires:  cmake(KF6WidgetsAddons)
+ 
 Requires:       kf6-filesystem
-
 	
 Obsoletes:      libplasma < %{version}-%{release}
 Provides:       libplasma = %{version}-%{release}
@@ -88,25 +67,42 @@ Provides:       kf6-plasma = 1:%{version}-%{release}
 %description
 Plasma library and runtime components, with AeroShell patches
 
+%package        devel
+Summary:        Development files for %{name}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       cmake(Qt6Qml)
+Requires:       cmake(Qt6Gui)
+Requires:       cmake(KF6Package)
+Requires:       cmake(KF6KirigamiPlatform)
+Requires:       cmake(KF6WindowSystem)
+Obsoletes:      kf6-plasma-devel < 1:%{version}-%{release}
+Provides:       kf6-plasma-devel = 1:%{version}-%{release}
+%description    devel
+The %{name}-devel package contains libraries and header files for
+developing applications that use %{name}.
+ 
+%package        doc
+Summary:        Developer Documentation files for %{name}
+BuildArch:      noarch
+%description    doc
+Developer Documentation files for %{name} for use with KDevelop or QtCreator.
+
 %prep
 %autosetup -n libplasma-%{commit}
 
 %build
-%cmake
+%cmake_kf6
 %cmake_build
 
 %install
 %cmake_install
+%find_lang %{name} --all-name --with-man --all-name
+
 # create/own dirs
 mkdir -p %{buildroot}%{_kf6_datadir}/plasma/plasmoids
 mkdir -p %{buildroot}%{_kf6_qmldir}/org/kde/private
 
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-update-mime-database %{_datadir}/mime &> /dev/null || :
-kbuildsycoca6 &> /dev/null || :
-
-%files
+%files -f %{name}.lang
 %dir %{_kf6_qmldir}/org/
 %dir %{_kf6_qmldir}/org/kde/
 %dir %{_kf6_qmldir}/org/kde/private/
@@ -120,6 +116,8 @@ kbuildsycoca6 &> /dev/null || :
 %{_kf6_plugindir}/packagestructure
 %{_kf6_qmldir}/org/kde/plasma/
 %{_kf6_qmldir}/org/kde/kirigami/styles/Plasma/AbstractApplicationHeader.qml
+ 
+%files devel
 %dir %{_kf6_datadir}/kdevappwizard/
 %{_kf6_datadir}/kdevappwizard/templates/
 %{_includedir}/Plasma/
@@ -128,7 +126,10 @@ kbuildsycoca6 &> /dev/null || :
 %{_libdir}/cmake/PlasmaQuick/
 %{_libdir}/libPlasma.so
 %{_libdir}/libPlasmaQuick.so
-%{_datadir}/locale/*/LC_MESSAGES/libplasma6.mo
+%{_qt6_docdir}/*.tags
+ 
+%files doc
+%{_qt6_docdir}/*.qch
 
 %changelog
 %autochangelog
