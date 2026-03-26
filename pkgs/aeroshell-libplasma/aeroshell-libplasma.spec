@@ -3,7 +3,7 @@
 %global commit 5636741b56ba90b60f71d2505de6bc2d2e609ced
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
-Name:           aeroshell-libplasma
+Name:           libplasma
 Version:        6.6.3
 Release:        51%{?dist}
 Summary:        Plasma library and runtime components, with AeroShell patches
@@ -59,10 +59,8 @@ BuildRequires:  cmake(KF6WidgetsAddons)
  
 Requires:       kf6-filesystem
 	
-Obsoletes:      libplasma < %{version}-%{release}
-Provides:       libplasma = %{version}-%{release}
-Obsoletes:      kf6-plasma < 1:%{version}-%{release}
 Provides:       kf6-plasma = 1:%{version}-%{release}
+Obsoletes:      kf6-plasma < 1:%{version}-%{release}
 
 %description
 Plasma library and runtime components, with AeroShell patches
