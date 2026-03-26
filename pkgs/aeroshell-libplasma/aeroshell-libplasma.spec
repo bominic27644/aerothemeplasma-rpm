@@ -82,6 +82,8 @@ Requires:       kf6-filesystem
 	
 Obsoletes:      libplasma < 1:%{version}-%{release}
 Provides:       libplasma = 1:%{version}-%{release}
+Obsoletes:      kf6-plasma < 1:%{version}-%{release}
+Provides:       kf6-plasma = 1:%{version}-%{release}
 
 %description
 Plasma library and runtime components, with AeroShell patches
