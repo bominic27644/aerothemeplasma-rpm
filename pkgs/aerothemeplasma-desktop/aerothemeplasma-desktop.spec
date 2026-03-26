@@ -3,14 +3,14 @@
 %global commit d4ca559d1ff9f26dd6652df66ecc075aa14efdc2
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
-Name:           aerothemeplasma
+Name:           aerothemeplasma-desktop
 Version:        0
 Release:        %autorelease
 Summary:        An alternative shell for KDE Plasma that aims to replicate the look and feel of Windows 7
 
 License:        AGPLv3
 URL:            https://gitgud.io/aeroshell/atp/aerothemeplasma
-Source:         https://gitgud.io/aeroshell/atp/%{name}/-/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
+Source:         https://gitgud.io/aeroshell/atp/aerothemeplasma/-/archive/%{commit}/aerothemeplasma-%{shortcommit}.tar.gz
 
 # Build requirements for C++ components
 BuildRequires:  ninja-build
@@ -86,7 +86,7 @@ Requires:       kf6-frameworkintegration
 An alternative shell for KDE Plasma that aims to replicate the look and feel of Windows 7
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n aerothemeplasma-%{commit}
 
 %build
 %cmake
