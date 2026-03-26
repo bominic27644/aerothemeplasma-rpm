@@ -4,7 +4,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           aeroshell-smod
-Version:        0
+Version:        6.6.3
 Release:        1.git%{shortcommit}%{?dist}
 Summary:        KDecoration3 decoration engine for AeroShell-based desktops
 

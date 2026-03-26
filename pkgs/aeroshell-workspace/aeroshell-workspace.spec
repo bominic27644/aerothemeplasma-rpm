@@ -4,7 +4,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           aeroshell-workspace
-Version:        0
+Version:        6.6.3
 Release:        1.git%{shortcommit}%{?dist}
 Summary:        Various components required by AeroShell-based desktops
 
