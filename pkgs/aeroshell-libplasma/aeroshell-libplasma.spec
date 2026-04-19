@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 
-%global commit 5636741b56ba90b60f71d2505de6bc2d2e609ced
+%global commit f9621f0d7e7bc9a52009cb714f66140ae72a4bea
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           libplasma
-Version:        6.6.3
+Version:        6.6.4
 Release:        51%{?dist}
 Summary:        Plasma library and runtime components, with AeroShell patches
 

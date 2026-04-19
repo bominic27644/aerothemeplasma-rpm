@@ -4,7 +4,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           aerothemeplasma-sounds
-Version:        6.6.3
+Version:        6.6.4
 Release:        1.git%{shortcommit}%{?dist}
 Summary:        Collection of sound themes designed for AeroThemePlasma
 

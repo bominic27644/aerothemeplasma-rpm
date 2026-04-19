@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 
-%global commit f149d75a1436f081a1c1e5c91acea0c01bbc48c3
+%global commit bc04a7b9ecbb4a8f0a88e69c1b1e4fd4ed2f358d
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           aeroshell-smodglow
-Version:        6.6.3
+Version:        6.6.4
 Release:        1.git%{shortcommit}%{?dist}
 Summary:        SMOD glow KWin effect
 

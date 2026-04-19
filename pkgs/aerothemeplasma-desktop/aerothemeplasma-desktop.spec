@@ -4,7 +4,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           aerothemeplasma-desktop
-Version:        6.6.3
+Version:        6.6.4
 Release:        1.git%{shortcommit}%{?dist}
 Summary:        An alternative shell for KDE Plasma that aims to replicate the look and feel of Windows 7
 
